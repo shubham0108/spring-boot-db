@@ -15,17 +15,17 @@ public class UsersResource {
     UsersRepository usersRepository;
 
     @GetMapping(value = "/all")
-    public List<Users> getAll() {
+    public static List<Users> getAll() {
         return usersRepository.findAll();
     }
 
     @GetMapping(value = "/id/{id}")
-    public List<Users> getId(@PathVariable Integer id){
+    public static List<Users> getId(@PathVariable Integer id){
         return usersRepository.findAllById(id);
     }
     
     @PostMapping(value = "/load")
-    public List<Users> persist(@RequestBody final Users users) {
+    public static List<Users> persist(@RequestBody final Users users) {
         usersRepository.save(users);
         return usersRepository.findAll();
     }
